@@ -19,7 +19,8 @@ function addTask(event) {
     //create checkbox
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.id = "checkbox" +todolist.childElementCount; 
+    checkbox.id = "checkbox" +todolist.childElementCount;
+    checkbox.addEventListener("change", removeTask);
 
     //create label
 let label = document.createElement("label");
@@ -37,8 +38,25 @@ let label = document.createElement("label");
     todolist.appendChild(listDiv)
 }
 
-checkbox.addeven
 
 function removeTask(event) {
-     
+    // Get id of checkbox
+    let checkboxId = event.target.id; // e.g. checkbox0
+
+    // Get id number from the checkbox id
+    let idNum = checkboxId.substring(8)
+ 
+
+    // Get task div by id
+    let taskdiv = document.getElementById("task" + idNum)
+    
+    // Apply animation
+    taskdiv.classList.add("remove-task");
+
+    // Remove the task div from layout
+    setTimeout(function() {
+        taskdiv.remove();
+    }, 1000);
+    
 }
+
