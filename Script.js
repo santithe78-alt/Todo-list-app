@@ -4,7 +4,7 @@ function addTask(event) {
     //Get user in from text box
     let textBox = document.getElementById("task-input");
     let task = textBox.value;
-    
+    let check
     //create a list item
     //Get To-do-list container div
 
@@ -35,4 +35,10 @@ let label = document.createElement("label");
 
     //Append list-item div to the list
     todolist.appendChild(listDiv)
+}
+
+checkbox.addeven
+
+function removeTask(event) {
+     
 }
