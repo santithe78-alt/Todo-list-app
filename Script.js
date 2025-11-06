@@ -4,17 +4,25 @@ function addTask(event) {
     //Get user in from text box
     let textBox = document.getElementById("task-input");
     let task = textBox.value;
-    let check
+
+    createTaskDiv(task);
+    // save task to local storage
+    localStorage.setItem(taskDiv.id, task);
+
+    console.log(localStorage.length)
+}
+
+function createTaskDiv(task) {
+
     //create a list item
     //Get To-do-list container div
-
     let todolist = document.getElementById("to-do-list")
 
 
     //create list-item div
-    let listDiv = document.createElement("div")
-    listDiv.id = "task" + todolist.childElementCount;
-    listDiv.classList.add("list-item");
+    let taskDiv = document.createElement("div")
+    taskDiv.id = "task" + todolist.childElementCount;
+    taskDiv.classList.add("list-item");
 
     //create checkbox
     let checkbox = document.createElement("input");
@@ -28,16 +36,15 @@ let label = document.createElement("label");
     label.innerText = task;
 
     //Appeend checkbox to lost-item div
-    listDiv.appendChild(checkbox);
+    taskDiv.appendChild(checkbox);
 
 
     //Append label to div
-    listDiv.appendChild(label);
+    taskDiv.appendChild(label);
 
     //Append list-item div to the list
-    todolist.appendChild(listDiv)
-}
-
+    todolist.appendChild(taskDiv);
+} 
 
 function removeTask(event) {
     // Get id of checkbox
@@ -60,3 +67,19 @@ function removeTask(event) {
     
 }
 
+function loadTask() {
+console.log("Loading Task sir...")
+// Get each task from localStorage
+for (let i = 0; i < localStorage.length; i++) {
+    let key= localStorage.key(i);
+    let task = localStorage.getItem(key);
+    console.log(task);
+}
+
+
+// Create task divs for each task
+
+//
+}
+
+loadTask();
